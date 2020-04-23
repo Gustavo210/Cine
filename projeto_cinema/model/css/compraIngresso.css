@@ -13,6 +13,13 @@ html{
 }
 .carrinho > .info{
     height: 300px;
+    font-size: 18px;
+    padding: 30px 40px;
+}
+.info > span{
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
 }
 .carrinho > .titulo{
     text-align: center;
@@ -70,11 +77,7 @@ p{
     color: white;
     font-size: 16px;
 }
-.info > span{
-    font-size: 20px;
-    font-weight: bold;
-    color: white;
-}
+
 .config{
     
     text-align: center;
@@ -154,19 +157,29 @@ p{
 .box{
     width: 30px;
 }
+
 .div-combos{
     display: none;
-    background-color: tomato;
 }
 .div-pagamentos{
     display: none;
-    background-color: yellow;
+    /* background-color: yellow; */
+}
+.cartao-info{
+    margin: 15px;
+    font-size: 18px;
+    font-weight: 700;
+}
+.corpo-pagamento{
+    padding: 0px 100px;
 }
 .metodos-pagamento{
-    background-color: yellow;
+    /* background-color: yellow; */
     width: 100%;
     text-align: center;
     font-size: 25px;
+    margin-top: 15px;
+    font-weight: bold;
 
 }
 .div-acentos{
@@ -200,15 +213,21 @@ p{
     padding: 5px;
     box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.219);
 }
-.card{
-    background-color: teal;
-    color: white;
-    margin: 20px;
-    padding: 10px;
+.seleciona-combo{
+    margin-left: 20px;
+    margin-right: 20px;
 }
-.foto{
-    width: 200px;
-    height: 170px;
+.item-combo{
+    margin: 10px 0px;
+}
+.item-combo > .combo{
+    margin: 10px;
+    z-index: 1;
+}
+.item-combo > .combo img{
+    width: 100%;
+    border-radius: 3px;
+    z-index: 1;
 }
 .div-combos>.titulo{
     text-align: center;
@@ -218,6 +237,7 @@ p{
 }
 .botoes{
     padding: 25px;
+    margin-top: 10%;
 }
 .alugue-texto{
     text-align: center;
@@ -244,6 +264,73 @@ p{
     font-weight: bold;
     color: rgb(139, 139, 139);
 }
-.valor-total-ingressos{
+.valor-total-ingressos, .valor-total-combos,.total-compra{
     display: inline;
+}
+.Meus-combos, .Meus-ingressos{
+    padding: 25px 0px;
+}
+.float-x{
+    position: absolute;
+    top: 9px;
+    right: 26px;
+    background-color: red;
+    margin: 3px;
+    text-align: center;
+    font-weight: bold;
+    padding: 5px;
+    width: 40px;
+    height: 40px;
+    border-radius: 5px;
+    color: white;
+    z-index: 10;
+    display: none;
+}
+.float-plus{
+    z-index: 10;
+    position: absolute;
+    top: 0;
+    right: 50px;
+    background-color: rgb(52, 116, 255);
+    margin: 3px;
+    text-align: center;
+    font-weight: bold;
+    padding: 5px;
+    width: 40px;
+    height: 40px;
+    border-radius: 5px;
+    color: white;
+}
+.input-texto{
+    width: 100%;
+    margin: 10px;
+    padding: 5px;
+    background-color: transparent;
+    border-bottom: solid 1px gray;
+    font-size: 18px;
+    font-weight: 600;
+    color: rgb(117, 117, 117);
+    outline: none;
+}
+
+
+.boleto{
+    font-size: 20px;
+    font-weight: 700;
+    display: block;
+}
+
+.boleto-exemple{
+    margin: 0px 100px;
+    width: 20vw;
+}
+
+.corpo-pagamento .button{
+    background-color: rgb(103, 219, 57);
+    font-size: 20px;
+    color: white;
+    box-shadow: 1px 1px 5px rgb(138, 138, 138);
+    position: fixed;
+    bottom: 30px;
+    right: 40px;
 }

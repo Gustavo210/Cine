@@ -4,7 +4,7 @@ require_once "cabecalho.php";
 
 <link rel="stylesheet" href="../model/css/compraIngresso.css">
 
-<div class="container-fluid acentoss p-0 m-0 row">
+<div class="container-fluid p-0 m-0 row">
     <!-- div de informações do filme -->
     <div class="col-sm-3 info-film">
 
@@ -26,11 +26,15 @@ require_once "cabecalho.php";
     <!-- carrinho, ele sera atualizado dinamicamente -->
         <div class="carrinho">
             <div class="titulo">Carrinho</div>
-            <div class="info">info
-
-            R$: <div class="valor-total-ingressos">0</div>,00
+            <div class="info">
+                <div class="Meus-ingressos">
+                    Meus ingressos R$: <div class="valor-total-ingressos">0</div>,00
+                </div>
+                <div class="Meus-combos">
+                    Meus combos R$: <div class="valor-total-combos">0</div>,00
+                </div>
             </div>
-            <div class="total">Total: R$ 0,00</div>
+            <div class="total">Total: R$ <div class="total-compra">0</div>,00</div>
         </div>
 
         <div class="row div-button">
@@ -146,97 +150,76 @@ require_once "cabecalho.php";
         </div>
         <div class="div-combos row p-0 m-0">
             <div class="titulo">Escolha nossos combos</div>
-        <div class="row">
-                <div class="col-sm">
-                    <div class="card ">
-                        <div class="row">
-                            <div class="col-sm-4 foto">foto</div>
-                            <div class="col-sm-8">descrição</div>
-                        </div>
+        <div class="seleciona-combo">
+            <div class="row">
+                <div class="item-combo col-4">
+                    <div class="combo">
+                        <img src="../model/img/Combo/balde.jpg" alt="balde">
+                        <input class="quant" type="hidden">
+                        <input class="preco" value="25" type="hidden">
                     </div>
+                    <button class="float-x">X</button>
                 </div>
-                <div class="col-sm">
-                    <div class="card ">
-                        <div class="row">
-                            <div class="col-sm-4 foto">foto</div>
-                            <div class="col-sm-8">descrição</div>
-                        </div>
+                <div class="item-combo col-4">
+                    <div class="combo">
+                        <img src="../model/img/Combo/duplo.jpg" alt="duplo">
+                        <input class="quant" type="hidden">
+                        <input class="preco" value="23" type="hidden">
                     </div>
+                    <button class="float-x">X</button>
                 </div>
-                <div class="col-sm">
-                    <div class="card ">
-                        <div class="row">
-                            <div class="col-sm-4 foto">foto</div>
-                            <div class="col-sm-8">descrição</div>
-                        </div>
+                <div class="item-combo col-4">
+                    <div class="combo">
+                        <img src="../model/img/Combo/grande.jpg" alt="grande">
+                        <input class="quant" type="hidden">
+                        <input  class="quant" type="hidden">
+                        <input class="preco" value="19" type="hidden">
                     </div>
-                </div>
-        </div>
-        <div class="row">
-                <div class="col-sm">
-                    <div class="card ">
-                        <div class="row">
-                            <div class="col-sm-4 foto">foto</div>
-                            <div class="col-sm-8">descrição</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm">
-                    <div class="card ">
-                        <div class="row">
-                            <div class="col-sm-4 foto">foto</div>
-                            <div class="col-sm-8">descrição</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm">
-                    <div class="card ">
-                        <div class="row">
-                            <div class="col-sm-4 foto">foto</div>
-                            <div class="col-sm-8">descrição</div>
-                        </div>
-                    </div>
+                    <button class="float-x">X</button>
                 </div>
             </div>
-        <div class="row">
-                <div class="col-sm">
-                    <div class="card ">
-                        <div class="row">
-                            <div class="col-sm-4 foto">foto</div>
-                            <div class="col-sm-8">descrição</div>
-                        </div>
+            <div class="row">
+                <div class="item-combo col-4">
+                    <div class="combo">
+                        <img src="../model/img/Combo/kids.jpg" alt="kids">
+                        <input class="quant" type="hidden">
+                        <input class="preco" value="10" type="hidden">
                     </div>
+                    <button class="float-x">X</button>
                 </div>
-                <div class="col-sm">
-                    <div class="card ">
-                        <div class="row">
-                            <div class="col-sm-4 foto">foto</div>
-                            <div class="col-sm-8">descrição</div>
-                        </div>
+                <div class="item-combo col-4">
+                    <div class="combo">
+                        <img src="../model/img/Combo/medio.jpg" alt="medio">
+                        <input class="quant" type="hidden">
+                        <input class="preco" value="15" type="hidden">
                     </div>
+                    <button class="float-x">X</button>
                 </div>
-                <div class="col-sm">
-                    <div class="card ">
-                        <div class="row">
-                            <div class="col-sm-4 foto">foto</div>
-                            <div class="col-sm-8">descrição</div>
-                        </div>
+                <div class="item-combo col-4">
+                    <div class="combo">
+                        <img src="../model/img/Combo/super.jpg" alt="super">
+                        <input class="quant" type="hidden">
+                        <input class="preco" value="21" type="hidden">
                     </div>
+                    <button class="float-x">X</button>
                 </div>
+            </div>
             </div>
             <div class="row botoes ">
                 <div class="col-sm-1"></div>
-                <div class="col-sm-2 text-center"><a class="btn btn-block btn-danger acento-bt" >Voltar</a></div>
+                <div class="col-sm-2 text-center"><a class="btn btn-block p-2 text-white btn-danger acento-bt" >Voltar</a></div>
                 <div class="col-sm-5"></div>
-                <div class="col-sm-2"><a class="btn btn-block  btn-primary pagamento-bt" >Avançar</a></div>
+                <div class="col-sm-2"><a class="btn btn-block p-2  text-white btn-primary pagamento-bt" >Avançar</a></div>
                 <div class="col-sm-2"></a></div>
             </div>
         </div>
         <div class="div-pagamentos">
-            <div class="metodos-pagamento">Opções de pagamento</div>
-            <div class="row">
+            <div class="metodos-pagamento">Opções de pagamento <div class="pt-5"><img src="../model/img/pagamento.svg" alt=""></div></div>
+            <div class="corpo-pagamento row">
                 <div class="col-sm-6">
-                    <div class="cartao-info">Dados Pessoais</div>
+                    <div class="cartao-info">Dados Pessoais
+                    <input type="checkbox" name="boleto">
+                    </div>
                     <div>
                         <input class="input-texto" placeholder="Titular"  type="text" name="" id="">
                     </div>
@@ -260,7 +243,13 @@ require_once "cabecalho.php";
                     </div>
                 </div>
                 
-                <div class="col-sm-6">boleto</div>
+                <div class="col-sm-6">
+                    <span class="boleto">Boleto 
+                        <input type="checkbox" name="boleto">
+                    </span>
+                        <img class="boleto-exemple" src="../model/img/zoom.jpg" alt="">
+                </div>
+                <button class="btn p-3 button">Finalizar</button>
             </div>
         </div>
 

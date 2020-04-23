@@ -15,7 +15,7 @@
 
 <body>
     <nav class="navbar row m-0 pr-4 pl-4   navbar-expand-lg navbar-dark navbar ">
-        <a class="row-10 navbar-brand m-1 logo" href="index.php"><img src="../model/img/unacinelogo.png" width="200"
+        <a class="row-10 navbar-brand m-1 logo" href="index.php"><img src="../model/img/unacinelogo.svg" width="200"
                 alt="UnaCine"></a>
 
         <a class=" navbar-toggler" data-toggle="collapse" data-target="#menu-top">
