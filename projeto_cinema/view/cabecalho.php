@@ -54,8 +54,8 @@
             </div>
         </div>
     <div class="col-1 col-sm-1 btn-group">
-        <button type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <img class="rounded-circle border-warning" src="../model/img/talin.jpg" width="35px" alt="Sua Foto"></i>
+        <button botao type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="far fa-user-circle"></i>
         </button>
         <div class="dropdown-menu dropdown-menu-right">
             <form class="px-4 py-3">

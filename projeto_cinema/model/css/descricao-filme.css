@@ -1,0 +1,36 @@
+.genero-filme{
+    border: solid rgb(85, 85, 85);
+    background-color: rgb(206, 206, 206);
+    font-size: 15px;
+    color: rgb(0, 0, 0);
+    border-radius: 10px;
+    padding: 2px;
+    margin: 0;
+    width: 100px;
+}
+.faixa-etaria-filme{
+    margin-left: 10px;
+    width: 30px;
+    border-radius: 1px;
+    background-color: orange;
+    color: white;
+    text-align: center;
+    font-size: 20px;
+    padding: 4px;
+    padding-top: 3px;
+}
+p{
+    margin-top: 10px;
+    font-size: 14px;
+}
+.fa-arrow-left{
+    font-size: 40px;
+    position: fixed;
+    top: 90px;
+    left: 20px;
+    color: rgb(0, 0, 0);
+}
+.footer{
+    position: fixed;
+    bottom: 0;
+}

@@ -51,6 +51,7 @@
 .footer{
     background-color: black;
     color: white;
+    width: 100%;
 }
 .topico{
     display: block;
@@ -121,4 +122,11 @@ span.ofertas{
     z-index: 998;
     position: absolute;
     top: 0;
+}
+[botao]{
+    background-color: transparent;
+}
+.fa-user-circle{
+    font-size: 35px;
+    color: white;
 }
