@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.2
+-- version 4.8.0.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 19-Abr-2020 às 17:37
--- Versão do servidor: 10.4.11-MariaDB
--- versão do PHP: 7.4.1
+-- Generation Time: 26-Abr-2020 às 18:40
+-- Versão do servidor: 10.1.32-MariaDB
+-- PHP Version: 5.6.36
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -19,7 +19,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Banco de dados: `teste`
+-- Database: `teste`
 --
 
 -- --------------------------------------------------------
@@ -64,41 +64,94 @@ CREATE TABLE `filme_categoria` (
 INSERT INTO `filme_categoria` (`idCategoria`, `Nome`, `Descricao`) VALUES
 (1, 'Suspense', ' ');
 
+-- --------------------------------------------------------
+
 --
--- Índices para tabelas despejadas
+-- Estrutura da tabela `ingresso`
+--
+
+CREATE TABLE `ingresso` (
+  `idIngresso` int(11) NOT NULL,
+  `idUsuario` int(11) NOT NULL,
+  `nome` int(11) NOT NULL,
+  `descricao` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `usuarios`
+--
+
+CREATE TABLE `usuarios` (
+  `idUser` int(11) NOT NULL,
+  `nome` text NOT NULL,
+  `email` text NOT NULL,
+  `senha` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Extraindo dados da tabela `usuarios`
+--
+
+INSERT INTO `usuarios` (`idUser`, `nome`, `email`, `senha`) VALUES
+(1, 'Gabriel', 'gbfeliped@gmail.com', 123456),
+(2, 'Gabriel', 'gbfeliped@gmail.com', 123456),
+(3, 'Gabriel2', 'teste@teste.com', 123);
+
+--
+-- Indexes for dumped tables
 --
 
 --
--- Índices para tabela `filme`
+-- Indexes for table `filme`
 --
 ALTER TABLE `filme`
   ADD PRIMARY KEY (`idFilme`),
   ADD KEY `fk_ID_categoria` (`idCategoria`);
 
 --
--- Índices para tabela `filme_categoria`
+-- Indexes for table `filme_categoria`
 --
 ALTER TABLE `filme_categoria`
   ADD PRIMARY KEY (`idCategoria`);
 
 --
--- AUTO_INCREMENT de tabelas despejadas
+-- Indexes for table `ingresso`
+--
+ALTER TABLE `ingresso`
+  ADD KEY `fk_usuario_id` (`idUsuario`);
+
+--
+-- Indexes for table `usuarios`
+--
+ALTER TABLE `usuarios`
+  ADD PRIMARY KEY (`idUser`);
+
+--
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT de tabela `filme`
+-- AUTO_INCREMENT for table `filme`
 --
 ALTER TABLE `filme`
   MODIFY `idFilme` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT de tabela `filme_categoria`
+-- AUTO_INCREMENT for table `filme_categoria`
 --
 ALTER TABLE `filme_categoria`
   MODIFY `idCategoria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- Restrições para despejos de tabelas
+-- AUTO_INCREMENT for table `usuarios`
+--
+ALTER TABLE `usuarios`
+  MODIFY `idUser` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- Constraints for dumped tables
 --
 
 --
@@ -106,6 +159,12 @@ ALTER TABLE `filme_categoria`
 --
 ALTER TABLE `filme`
   ADD CONSTRAINT `fk_ID_categoria` FOREIGN KEY (`idCategoria`) REFERENCES `filme_categoria` (`idCategoria`);
+
+--
+-- Limitadores para a tabela `ingresso`
+--
+ALTER TABLE `ingresso`
+  ADD CONSTRAINT `fk_usuario_id` FOREIGN KEY (`idUsuario`) REFERENCES `usuarios` (`idUser`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

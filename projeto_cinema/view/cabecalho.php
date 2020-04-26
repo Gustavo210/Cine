@@ -1,3 +1,6 @@
+<?php 
+session_start();
+?>
 <!doctype html>
 <html lang="pt-br">
 
@@ -57,18 +60,23 @@
         <button botao type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <i class="far fa-user-circle"></i>
         </button>
-        <div class="dropdown-menu dropdown-menu-right">
-            <form class="px-4 py-3">
+        <div class="dropdown-menu dropdown-menu-right" id="menuLogin">
+            <?php if(isset($_SESSION["isLogged"])): ?>
+            <div id="afterLoginMenu">
+                <a class="dropdown-item" href="#"><h6 class="welcomeMessage">Olá <?=$_SESSION["userName"]?>, Bem vindo!</h6></a>
+                <a class="dropdown-item" href="#">Ingressos</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item clickSair" href="#">Sair</a>
+            </div>
+            <form class="px-4 py-3" id="loginForm" style="width: 30vh;display: none;">
                 <div class="form-group">
                     <h4>Login</h4>
-                    <label for="exampleDropdownFormEmail1">Email</label>
-                    <input type="email" class="form-control" id="exampleDropdownFormEmail1"
-                        placeholder="email@exemplo.com">
+                    <label for="exampleDropdownFormEmail1">Email:</label>
+                    <input type="email" class="form-control" name="email" placeholder="email@exemplo.com">
                 </div>
                 <div class="form-group">
-                    <label for="exampleDropdownFormPassword1">Senha</label>
-                    <input type="password" class="form-control" id="exampleDropdownFormPassword1"
-                        placeholder="Senha">
+                    <label for="exampleDropdownFormPassword1">Senha:</label>
+                    <input type="password" class="form-control" name="senha" placeholder="Sua senha">
                 </div>
                 <div class="form-check">
                     <input type="checkbox" class="form-check-input" id="dropdownCheck">
@@ -77,10 +85,76 @@
                     </label>
                 </div>
                 <button type="submit" class="btn btn-block mt-3 btn-primary">Entrar</button>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item cadastrarButton" href="#">Novo aqui? Cadastre-se</a>
+                <a class="dropdown-item" href="#">Esqueci minha senha?</a>
             </form>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#">Novo aqui? Cadastre-se</a>
-            <a class="dropdown-item" href="#">Esqueci minha senha?</a>
+            <form class="px-4 py-3" id="signupForm" style="width: 30vh;display: none;">
+                <div class="form-group">
+                    <h4>Cadastro</h4>
+                    <label>Nome:</label>
+                    <input type="text" class="form-control" name="nome" placeholder="Seu nome">
+                </div>
+                <div class="form-group">
+                    <label>Email:</label>
+                    <input type="email" class="form-control" name="email" placeholder="email@exemplo.com">
+                </div>
+                <div class="form-group">
+                    <label>Senha:</label>
+                    <input type="password" class="form-control" name="senha" placeholder="Sua senha">
+                </div>
+                <button type="submit" class="btn btn-block mt-3 btn-primary">Cadastrar</button>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item loginButton" href="#">Já possui cadastro? Fazer login</a>
+            </form>
+            <?php else:?>
+            <form class="px-4 py-3" id="loginForm" style="width: 30vh;">
+                <div class="form-group">
+                    <h4>Login</h4>
+                    <label for="exampleDropdownFormEmail1">Email:</label>
+                    <input type="email" class="form-control" name="email" placeholder="email@exemplo.com">
+                </div>
+                <div class="form-group">
+                    <label for="exampleDropdownFormPassword1">Senha:</label>
+                    <input type="password" class="form-control" name="senha" placeholder="Sua senha">
+                </div>
+                <div class="form-check">
+                    <input type="checkbox" class="form-check-input" id="dropdownCheck">
+                    <label class="form-check-label" for="dropdownCheck">
+                        Lembrar
+                    </label>
+                </div>
+                <button type="submit" class="btn btn-block mt-3 btn-primary">Entrar</button>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item cadastrarButton" href="#">Novo aqui? Cadastre-se</a>
+                <a class="dropdown-item" href="#">Esqueci minha senha?</a>
+            </form>
+            <form class="px-4 py-3" id="signupForm" style="width: 30vh;display: none;">
+                <div class="form-group">
+                    <h4>Cadastro</h4>
+                    <label>Nome:</label>
+                    <input type="text" class="form-control" name="nome" placeholder="Seu nome">
+                </div>
+                <div class="form-group">
+                    <label>Email:</label>
+                    <input type="email" class="form-control" name="email" placeholder="email@exemplo.com">
+                </div>
+                <div class="form-group">
+                    <label>Senha:</label>
+                    <input type="password" class="form-control" name="senha" placeholder="Sua senha">
+                </div>
+                <button type="submit" class="btn btn-block mt-3 btn-primary">Cadastrar</button>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item loginButton" href="#">Já possui cadastro? Fazer login</a>
+            </form>
+            <div id="afterLoginMenu" style="display: none;width: auto;">
+                <h6 class="welcomeMessage text-center">Olá , Bem vindo!</h6>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#">Ingressos</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item clickSair" href="#">Sair</a>
+            </div>
+            <?php endif;?>
         </div>
     </div>
     </div>
