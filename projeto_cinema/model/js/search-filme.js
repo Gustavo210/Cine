@@ -14,7 +14,7 @@ $(".input-search").on("input",function() {
         data: {"method":"getFilmes","search":$(".input-search").val()}
     }).done((data) => {
         data.data.forEach(element => {
-            $(".search-list").append(`<div class="search-item"><a href="compra-ingresso.php"class=" btn " ><img class="img-fluid" src="${element.Cover}" style="height: 100px;"/><span class="title-search-filme position-absolute">${element.Nome} <span class="disc-search-filme">${element.Descricao}</span></span></a></div>`);
+            $(".search-list").append(`<div class="search-item"><a href="descricao-filme.php?id=${element.idFilme}" class=" btn " ><img class="img-fluid" src="${element.Cover}" style="height: 100px;"/><span class="title-search-filme position-absolute text-left">${element.Nome} <span class="disc-search-filme text-justify">${element.Descricao}</span></span></a></div>`);
         });
     });
 });
@@ -31,4 +31,17 @@ $(".input-search").on("keypress", function(e) {
 $(".botao-pesquisar").on("click", function (e){
     location.href="resultado-pesquisa.php?search="+$(".input-search").val();
     return false;
+});
+
+
+
+$("#finalizarCompra").on("click", function (e){
+    Swal.fire(
+        'Sucesso!',
+        'Compra realizada com sucesso, obrigado por realizar a compra!',
+        'success'
+    ).then((e) => {
+
+        location.href = "index.php";
+    });
 });

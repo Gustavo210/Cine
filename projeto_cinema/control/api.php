@@ -85,6 +85,5 @@ switch($_GET["method"]){
         break;
     }
 }
-
 echo json_encode($response_data);
 ?>

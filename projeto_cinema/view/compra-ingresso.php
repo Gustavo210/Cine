@@ -1,5 +1,20 @@
 <?php
 require_once "cabecalho.php";
+require_once("../control/config.php");
+require_once("../control/config.php");
+if(!isset($_GET["id"])) { echo "<script>location.href='index.php';</script>"; } else {
+    $sql = "SELECT filme.link_trailer,filme.Nome as fnome,filme.Descricao as fdesc,filme.Cover,cat.Nome as fcnome,filme.faixa_etaria FROM filme INNER JOIN filme_categoria cat ON (filme.idCategoria = cat.idCategoria) where filme.IdFilme = :id";
+    $stmt = $PDO->prepare($sql);
+    $stmt->bindParam( ':id',$_GET["id"]);
+    $result = $stmt->execute();
+    if($stmt->rowCount() == 0){
+        echo "<script>location.href='index.php';</script>";
+    } else {
+        $rows = $stmt->fetchAll();
+    }
+    
+    
+}
 ?>
 
 <link rel="stylesheet" href="../model/css/compraIngresso.css">
@@ -11,11 +26,11 @@ require_once "cabecalho.php";
     <!-- conteudo -->
         <div class="row">
             <div class="col-sm-auto">
-                <img src="../model/img/sonic.jpg" class="poster" alt="">
+                <img src="<?=$rows[0]["Cover"]?>" class="poster" alt="">
             </div>
 
             <div class="col-sm-6 info">
-                <span>Vingadores: Ultimato</span>
+                <span><?=$rows[0]["fnome"]?></span>
                 <p>
                     Serracine<br>
                     Segunda 06/05 16:00 <br>
@@ -249,7 +264,7 @@ require_once "cabecalho.php";
                     </span>
                         <img class="boleto-exemple" src="../model/img/zoom.jpg" alt="">
                 </div>
-                <button class="btn p-3 button">Finalizar</button>
+                <button class="btn p-3 button" id="finalizarCompra">Finalizar</button>
             </div>
         </div>
 
@@ -258,3 +273,6 @@ require_once "cabecalho.php";
 </div>
 
 <script src="../model/js/compra-ingresso.js"></script>
+<?php
+require_once "footer.php";
+?>

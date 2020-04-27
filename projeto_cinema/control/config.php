@@ -5,7 +5,7 @@ define( 'MYSQL_PASSWORD', '' );
 define( 'MYSQL_DB_NAME', 'teste' );
 try
 {
-    $PDO = new PDO( 'mysql:host=' . MYSQL_HOST . ';dbname=' . MYSQL_DB_NAME, MYSQL_USER, MYSQL_PASSWORD );
+    $PDO = new PDO( 'mysql:host=' . MYSQL_HOST . ';charset=utf8;dbname=' . MYSQL_DB_NAME, MYSQL_USER, MYSQL_PASSWORD );
 }
 catch ( PDOException $e )
 {

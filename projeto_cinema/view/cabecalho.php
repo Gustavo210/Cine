@@ -32,7 +32,7 @@ session_start();
                     <a class="nav_button" href="index.php"><i class="fas fa-home"></i> Home</a>
                 </div>
                 <div class="col-auto col-sm-auto mr-3 ">
-                    <a class="nav_button" href><i class="fas fa-users"></i> Sobre Nós</a>
+                    <a class="nav_button" href="sobre-nos.php"><i class="fas fa-users"></i> Sobre Nós</a>
                 </div>
 
             </div>

@@ -1,5 +1,19 @@
 <?php
 require_once "cabecalho.php";
+require_once("../control/config.php");
+if(!isset($_GET["id"])) { echo "<script>location.href='index.php';</script>"; } else {
+    $sql = "SELECT filme.idFilme,filme.link_trailer,filme.Nome as fnome,filme.Descricao as fdesc,filme.Cover,cat.Nome as fcnome,filme.faixa_etaria FROM filme INNER JOIN filme_categoria cat ON (filme.idCategoria = cat.idCategoria) where filme.IdFilme = :id";
+    $stmt = $PDO->prepare($sql);
+    $stmt->bindParam( ':id',$_GET["id"]);
+    $result = $stmt->execute();
+    if($stmt->rowCount() == 0){
+        echo "<script>location.href='index.php';</script>";
+    } else {
+        $rows = $stmt->fetchAll();
+    }
+    
+    
+}
 ?>
 <link rel="stylesheet" href="../model/css/descricao-filme.css">
 <div class="container-fluid p-5">
@@ -10,28 +24,28 @@ require_once "cabecalho.php";
         <div class="col-sm-6">
             <div class="row">
                 <div class="col-sm-3">
-                    <img src="../model/img/sonic.jpg" width="200px" alt="">
+                    <img src="<?=$rows[0]["Cover"]?>" width="200px" alt="">
                 </div>
                 <div class="col-sm-8">
-                    <h2>Vingadores Ultimato</h2>
-                    <span class=" genero-filme"><span>Gênero: teste</span> </span>
-                    <span class="faixa-etaria-filme">12</span>
-                    <p>
-                        Quarto filme da franquia Os Vingadores, na 3ª Fase do Universo Cinematográfico da Marvel.
-                        Culminando a jornada de 21 filmes interconectados,
-                        Vingadores: Ultimato mostra o fim da luta dos heróis contra Thanos, o titã louco. Após utilizar
-                        a manopla do infinito,
-                        Thanos dizimou metade dos seres vivos do universo,
-                        agora, ainda sofrendo com a perda os Vingadores devem se recompor e criar um plano para derrotar
-                        e o vilão e desfazer todo o caos. <br><br>
+                    <h2><?=$rows[0]["fnome"]?></h2>
+                    <span class=" genero-filme"><span>Gênero: <?=$rows[0]["fcnome"]?></span> </span>
+                    <span class="faixa-etaria-filme" style="<?php
+                        if($rows[0]["faixa_etaria"] <= 0) echo "background-color: green;"
+                    
+                    ?>"><?php if($rows[0]["faixa_etaria"] >= 1) {
+                        echo $rows[0]["faixa_etaria"];
 
-                        Elenco: Robert Downey Jr., Mark Ruffalo, Scarlett Johansson
+                    } else {
+                        echo "Livre";
+                    }?></span>
+                    <p>
+                        <?=$rows[0]["fdesc"]?>
                     </p>
                 </div>
             </div>
         </div>
         <div class="col-sm-6">
-            <iframe width="800px" height="400px" src="https://www.youtube.com/embed/4QRdB4RAQMs"
+            <iframe width="800px" height="400px" src="<?=$rows[0]["link_trailer"]?>"
                 allowfullscreen></iframe>
         </div>
     </div>
@@ -43,25 +57,25 @@ require_once "cabecalho.php";
 
 
             <div class="col">
-                <button class="btn btn-block btn-info">Segunda <br> 16hs</button>
+                <a class="btn btn-block btn-success" href="compra-ingresso.php?id=<?=$rows[0]["idFilme"]?>">Segunda <br> 16hs</a>
             </div>
             <div class="col">
-                <button class="btn btn-block btn-info">Terça <br> 16hs</button>
+                <a class="btn btn-block btn-success" href="compra-ingresso.php?id=<?=$rows[0]["idFilme"]?>">Terça <br> 16hs</a>
             </div>
             <div class="col">
-                <button class="btn btn-block btn-info">Quarta <br> 16hs</button>
+                <a class="btn btn-block btn-success" href="compra-ingresso.php?id=<?=$rows[0]["idFilme"]?>">Quarta <br> 16hs</a>
             </div>
             <div class="col">
-                <button class="btn btn-block btn-info">Quinta <br> 16hs</button>
+                <a class="btn btn-block btn-success" href="compra-ingresso.php?id=<?=$rows[0]["idFilme"]?>">Quinta <br> 16hs</a>
             </div>
             <div class="col">
-                <button class="btn btn-block btn-info">Sexta <br> 16hs</button>
+                <a class="btn btn-block btn-success" href="compra-ingresso.php?id=<?=$rows[0]["idFilme"]?>">Sexta <br> 16hs</a>
             </div>
             <div class="col">
-                <button class="btn btn-block btn-info">Sabado <br> 16hs</button>
+                <a class="btn btn-block btn-success" href="compra-ingresso.php?id=<?=$rows[0]["idFilme"]?>">Sabado <br> 16hs</a>
             </div>
             <div class="col">
-                <button class="btn btn-block btn-info">Domingo <br> 16hs</button>
+                <a class="btn btn-block btn-success" href="compra-ingresso.php?id=<?=$rows[0]["idFilme"]?>">Domingo <br> 16hs</a>
             </div>
 
             </div>

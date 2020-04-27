@@ -1,5 +1,6 @@
 <?php
 require_once "cabecalho.php";
+require_once("../control/config.php");
 ?>
 <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
   <div class="carousel-inner">
@@ -28,61 +29,26 @@ require_once "cabecalho.php";
     <span class="sr-only">Proximo</span>
   </a>
 </div>
-<div class="row m-0 p-1 bg-dark justify-content-center">
+<div class="row m-0 p-1 justify-content-center" style="background-color: #f4e9e5!important;color:white;">
   <img src="../model/img/Combo/Banner.jpg" width="40%" alt="">
 </div>
+<div class="filmes-destaque row justify-content-center bg-dark">
+  <?php 
+  $sql = "SELECT * FROM filme ORDER BY idFilme DESC LIMIT 6";
+  $stmt = $PDO->prepare($sql);
+  $result = $stmt->execute();
+  $rows = $stmt->fetchAll();
 
-<div class="filmes-destaque row justify-content-center">
-  <div class="filme-cartaz col-sm-auto col-5">
-    <img src="../model/img/sonic.jpg" width="150px" alt="">../
-    <div class="nome-cartaz">
-      teste1
-      <i class="fas fa-square"></i>
-    </div>
-  </div>
-
-  <div class="filme-cartaz col-sm-auto col-5">
-    <img src="../model/img/sonic.jpg" width="150px" alt="">
-    <div class="nome-cartaz">
-      teste2
-      <i class="fas fa-square"></i>
-    </div>
-  </div>
-
-  <div class="filme-cartaz col-sm-auto col-5">
-    <img src="../model/img/sonic.jpg" width="150px" alt="">
-    <div class="nome-cartaz">
-      teste3
-      <i class="fas fa-square"></i>
-    </div>
-  </div>
-
-  <div class="filme-cartaz col-sm-auto col-5">
-    <img src="../model/img/sonic.jpg" width="150px" alt="">
-    <div class="nome-cartaz">
-      teste4
-      <i class="fas fa-square"></i>
-    </div>
-  </div>
-
-  <div class="filme-cartaz col-sm-auto col-5">
-    <img src="../model/img/sonic.jpg" width="150px" alt="">
-    <div class="nome-cartaz">
-      teste5
-      <i class="fas fa-square"></i>
-    </div>
-  </div>
-
-  <div class="filme-cartaz col-sm-auto col-5">
-    <img src="../model/img/sonic.jpg" width="150px" alt="">
-    <div class="nome-cartaz">
-      teste5
-
-      <i class="fas fa-square"></i>
+  foreach($rows as $row):
+  ?>
+    <div class="filme-cartaz col-sm-auto col-5">
+      <img src="<?=$row["Cover"]?>" width="150px" alt="">
+      <div class="nome-cartaz text-white">
+        <?=$row["Nome"]?>
       </div>
-      </div>
-
     </div>
+  <?php endforeach; ?>
+  </div>
 <?php
 require_once "footer.php";
 ?>

@@ -28,12 +28,13 @@
 }
 .faixa-etaria-filme{
     margin-left: 10px;
-    width: 30px;
     border-radius: 1px;
     background-color: orange;
     color: white;
     text-align: center;
     font-size: 20px;
+    padding: 4px;
+    padding-top: 3px;
 }
 .em-exibicao{
     font-size: 13px;

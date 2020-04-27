@@ -110,7 +110,7 @@ span.ofertas{
     font-size: 12px;
     text-overflow: ellipsis;
     overflow: hidden;
-    width: 290px;
+    width: 456px;
     display: block;
     font-weight: 50;
     height: 74px;
@@ -129,4 +129,8 @@ span.ofertas{
 .fa-user-circle{
     font-size: 35px;
     color: white;
+}
+.nome-cartaz {
+    width: 150px;
+    text-align: justify;
 }
