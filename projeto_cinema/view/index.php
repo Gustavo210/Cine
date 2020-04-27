@@ -8,10 +8,6 @@ require_once "cabecalho.php";
     </div>
     <div class="carousel-item">
       <img class="d-block" src="../model/img/banners/Vikings.jpg" width="100%" alt="Second slide">
-      <div class="carousel-caption d-none d-md-block">
-        <h5>Interestelar</h5>
-        <p>somente hoje</p>
-      </div>
     </div>
     <div class="carousel-item">
       <img class="d-block" src="../model/img/banners/Sonic.jpg" width="100%" alt="Third slide">

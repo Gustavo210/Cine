@@ -29,18 +29,12 @@ session_start();
 
             <div class="col-sm-6 row justify-content-end">
                 <div class="col-auto col-sm-auto ">
-                    <a class="nav_button" href>Em cartaz</a>
+                    <a class="nav_button" href="index.php"><i class="fas fa-home"></i> Home</a>
                 </div>
-                <div class="col-auto col-sm-auto ">
-                    <a class="nav_button" href>Categorias</a>
+                <div class="col-auto col-sm-auto mr-3 ">
+                    <a class="nav_button" href><i class="fas fa-users"></i> Sobre Nós</a>
                 </div>
-                <div class="col-auto col-sm-auto  dropdown ">
-                    <a class="nav_button" data-toggle="dropdown" href>Guia de Salas</a>
-                    <div class="dropdown-menu dropdown-menu-right">
-                        <a class="dropdown-item" href="#">Salas premium</a>
-                        <a class="dropdown-item" href="#">Mapas dos Cinemas</a>
-                    </div>
-                </div>
+
             </div>
             <div class="col-10 col-sm-5 input-group" style="padding: 0;">
                 <input type="text" class="form-control input-search" placeholder="pesquise por filmes, cinemas" value="<?php 
