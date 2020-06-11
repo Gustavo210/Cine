@@ -1,3 +1,4 @@
+
 <div  class="footer">
 
     <div class="row m-0 text-center pt-3 pb-3">
@@ -36,6 +37,7 @@
     </script>
     <script type="text/javascript" src="../model/js/search-filme.js"></script>
     <script type="text/javascript" src="../model/js/login.js"></script>
+	<script src="https://unpkg.com/blip-chat-widget" type="text/javascript"> </script> <script> (function () { window.onload = function () { new BlipChat() .withAppKey('Y2luZW1pbmhhOjhkNjdlMzliLTk0M2EtNGQyNC1iNjg0LTIyMjc4ZDExZDBlMQ==') .withButton({"color":"#2CC3D5","icon":""}) .withCustomCommonUrl('https://chat.blip.ai/') .build(); } })(); </script>
 </body>
 
 </html>

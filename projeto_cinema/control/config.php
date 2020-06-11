@@ -1,8 +1,8 @@
 <?php
 define( 'MYSQL_HOST', 'localhost' );
 define( 'MYSQL_USER', 'root' );
-define( 'MYSQL_PASSWORD', '' );
-define( 'MYSQL_DB_NAME', 'teste' );
+define( 'MYSQL_PASSWORD', 'teste' );
+define( 'MYSQL_DB_NAME', 'unacine' );
 try
 {
     $PDO = new PDO( 'mysql:host=' . MYSQL_HOST . ';charset=utf8;dbname=' . MYSQL_DB_NAME, MYSQL_USER, MYSQL_PASSWORD );

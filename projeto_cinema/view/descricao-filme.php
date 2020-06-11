@@ -85,4 +85,3 @@ if(!isset($_GET["id"])) { echo "<script>location.href='index.php';</script>"; } 
 </div>
 <?php
 require_once "footer.php";
-?>
