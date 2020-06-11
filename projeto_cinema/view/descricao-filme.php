@@ -15,6 +15,7 @@ if(!isset($_GET["id"])) { echo "<script>location.href='index.php';</script>"; } 
     
 }
 ?>
+
 <link rel="stylesheet" href="../model/css/descricao-filme.css">
 <div class="container-fluid p-5">
     <a href="index.php">
