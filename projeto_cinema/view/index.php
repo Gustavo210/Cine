@@ -1,6 +1,10 @@
 <?php
 require_once "cabecalho.php";
 require_once("../control/config.php");
+$sql = "SELECT * FROM filme ORDER BY idFilme DESC LIMIT 6";
+$stmt = $PDO->prepare($sql);
+$result = $stmt->execute();
+$rowss = $stmt->fetchAll();
 ?>
 <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
   <div class="carousel-inner">
@@ -42,7 +46,7 @@ require_once("../control/config.php");
   foreach($rows as $row):
   ?>
     <div class="filme-cartaz col-sm-auto col-5">
-      <img src="<?=$row["Cover"]?>" width="150px" alt="">
+      <img src="<?=$row["Cover"]?>" width="150px">
       <div class="nome-cartaz text-white">
         <?=$row["Nome"]?>
       </div>

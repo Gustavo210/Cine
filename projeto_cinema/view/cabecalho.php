@@ -14,10 +14,14 @@ session_start();
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="../model/css/main.css">
     <script src="https://kit.fontawesome.com/16d67f6777.js" crossorigin="anonymous"></script>
+    <link rel="sortcut icon" href="../model/img/logonavegador.png" type="image/png" />
+    <link rel="stylesheet" type="text/css" href="../model/css/loading-bar.css"/>
+<script type="text/javascript" src="../model/js/loading-bar.js"></script>
 </head>
 
 <body>
-    <nav class="navbar row m-0 pr-4 pl-4   navbar-expand-lg navbar-dark navbar ">
+
+    <nav class="navbar row m-0 pr-4 pl-4 sticky-top   navbar-expand-lg navbar-dark navbar ">
         <a class="row-10 navbar-brand m-1 logo" href="index.php"><img src="../model/img/unacinelogo.svg" width="200"
                 alt="UnaCine"></a>
 
@@ -72,16 +76,10 @@ session_start();
                     <label for="exampleDropdownFormPassword1">Senha:</label>
                     <input type="password" class="form-control" name="senha" placeholder="Sua senha">
                 </div>
-                <div class="form-check">
-                    <input type="checkbox" class="form-check-input" id="dropdownCheck">
-                    <label class="form-check-label" for="dropdownCheck">
-                        Lembrar
-                    </label>
-                </div>
+
                 <button type="submit" class="btn btn-block mt-3 btn-primary">Entrar</button>
                 <div class="dropdown-divider"></div>
                 <a class="dropdown-item cadastrarButton" href="#">Novo aqui? Cadastre-se</a>
-                <a class="dropdown-item" href="#">Esqueci minha senha?</a>
             </form>
             <form class="px-4 py-3" id="signupForm" style="width: 30vh;display: none;">
                 <div class="form-group">
@@ -112,16 +110,10 @@ session_start();
                     <label for="exampleDropdownFormPassword1">Senha:</label>
                     <input type="password" class="form-control" name="senha" placeholder="Sua senha">
                 </div>
-                <div class="form-check">
-                    <input type="checkbox" class="form-check-input" id="dropdownCheck">
-                    <label class="form-check-label" for="dropdownCheck">
-                        Lembrar
-                    </label>
-                </div>
+
                 <button type="submit" class="btn btn-block mt-3 btn-primary">Entrar</button>
                 <div class="dropdown-divider"></div>
                 <a class="dropdown-item cadastrarButton" href="#">Novo aqui? Cadastre-se</a>
-                <a class="dropdown-item" href="#">Esqueci minha senha?</a>
             </form>
             <form class="px-4 py-3" id="signupForm" style="width: 30vh;display: none;">
                 <div class="form-group">

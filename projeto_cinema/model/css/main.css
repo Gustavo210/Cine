@@ -134,3 +134,8 @@ span.ofertas{
     width: 150px;
     text-align: justify;
 }
+.fa-arrow-left{
+    font-size: 40px;
+
+    color: rgb(0, 0, 0);
+}

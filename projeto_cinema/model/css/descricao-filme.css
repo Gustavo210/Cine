@@ -23,13 +23,7 @@ p{
     margin-top: 10px;
     font-size: 14px;
 }
-.fa-arrow-left{
-    font-size: 40px;
-    position: fixed;
-    top: 90px;
-    left: 20px;
-    color: rgb(0, 0, 0);
-}
+
 .footer{
     position: fixed;
     bottom: 0;

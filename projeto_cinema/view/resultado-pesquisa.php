@@ -14,7 +14,10 @@ $result = $stmt->execute();
 $rows = $stmt->fetchAll();
 ?>
 <link rel="stylesheet" href="../model/css/pesquisa.css">
-<div class="p-5">
+<div style="min-height:100vh" class="p-5">
+<a href="javascript:history.back()"><i class="fas fa-arrow-left"></i></a>
+<br>
+<br>
     <p class="resultado-pesquisa">
         Pesquisa <span class="span-destaque"><?=$_GET["search"]?></span><hr>
     </p>
@@ -26,7 +29,7 @@ $rows = $stmt->fetchAll();
     <div class=" box-filme">
         <div class="row justify-content-between">
         <div class="col-sm-4 titulo-filme"><?=$row["fnome"]?></div>
-        <div class="col-sm-2"> <a class="btn btn-block btn-success" href="compra-ingresso.php?id=<?=$row["idFilme"]?>">Comprar ingresso</a> <a class="btn btn-block btn-primary" href="descricao-filme.php?id=<?=$row["idFilme"]?>">Detalhes</a></div>
+        <div class="col-sm-2"> <a class="btn btn-block btn-success" href="compra-ingresso.php?id=<?=$row["idFilme"]?>&dia=<?=date("N")?>">Comprar ingresso</a> <a class="btn btn-block btn-primary" href="descricao-filme.php?id=<?=$row["idFilme"]?>">Detalhes</a></div>
         </div>
         <div class="row">
             <div class="col-sm-2 "><img src="<?=$row["Cover"]?>" width="200px" alt=""></div>

@@ -57,25 +57,25 @@ if(!isset($_GET["id"])) { echo "<script>location.href='index.php';</script>"; } 
 
 
             <div class="col">
-                <a class="btn btn-block btn-success" href="compra-ingresso.php?id=<?=$rows[0]["idFilme"]?>">Segunda <br> 16hs</a>
+                <a class="btn btn-block btn-success" href="compra-ingresso.php?id=<?=$rows[0]["idFilme"]?>&dia=1">Segunda <br> 16hs</a>
             </div>
             <div class="col">
-                <a class="btn btn-block btn-success" href="compra-ingresso.php?id=<?=$rows[0]["idFilme"]?>">Terça <br> 16hs</a>
+                <a class="btn btn-block btn-success" href="compra-ingresso.php?id=<?=$rows[0]["idFilme"]?>&dia=2">Terça <br> 16hs</a>
             </div>
             <div class="col">
-                <a class="btn btn-block btn-success" href="compra-ingresso.php?id=<?=$rows[0]["idFilme"]?>">Quarta <br> 16hs</a>
+                <a class="btn btn-block btn-success" href="compra-ingresso.php?id=<?=$rows[0]["idFilme"]?>&dia=3">Quarta <br> 16hs</a>
             </div>
             <div class="col">
-                <a class="btn btn-block btn-success" href="compra-ingresso.php?id=<?=$rows[0]["idFilme"]?>">Quinta <br> 16hs</a>
+                <a class="btn btn-block btn-success" href="compra-ingresso.php?id=<?=$rows[0]["idFilme"]?>&dia=4">Quinta <br> 16hs</a>
             </div>
             <div class="col">
-                <a class="btn btn-block btn-success" href="compra-ingresso.php?id=<?=$rows[0]["idFilme"]?>">Sexta <br> 16hs</a>
+                <a class="btn btn-block btn-success" href="compra-ingresso.php?id=<?=$rows[0]["idFilme"]?>&dia=5">Sexta <br> 16hs</a>
             </div>
             <div class="col">
-                <a class="btn btn-block btn-success" href="compra-ingresso.php?id=<?=$rows[0]["idFilme"]?>">Sabado <br> 16hs</a>
+                <a class="btn btn-block btn-success" href="compra-ingresso.php?id=<?=$rows[0]["idFilme"]?>&dia=6">Sabado <br> 16hs</a>
             </div>
             <div class="col">
-                <a class="btn btn-block btn-success" href="compra-ingresso.php?id=<?=$rows[0]["idFilme"]?>">Domingo <br> 16hs</a>
+                <a class="btn btn-block btn-success" href="compra-ingresso.php?id=<?=$rows[0]["idFilme"]?>&dia=7">Domingo <br> 16hs</a>
             </div>
 
             </div>

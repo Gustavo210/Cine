@@ -3,7 +3,15 @@ require_once "cabecalho.php";
 require_once("../control/config.php");
 require_once("../control/config.php");
 if(!isset($_GET["id"])) { echo "<script>location.href='index.php';</script>"; } else {
-    $sql = "SELECT filme.link_trailer,filme.Nome as fnome,filme.Descricao as fdesc,filme.Cover,cat.Nome as fcnome,filme.faixa_etaria FROM filme INNER JOIN filme_categoria cat ON (filme.idCategoria = cat.idCategoria) where filme.IdFilme = :id";
+    $sql = "SELECT filme.link_trailer,
+    filme.Nome fnome,
+    filme.Descricao fdesc,
+    filme.Cover,
+    cat.Nome fcnome,
+    filme.ingresso_meia meia,
+    filme.ingresso_inteira inteira,
+    filme.faixa_etaria
+     FROM filme INNER JOIN filme_categoria cat ON (filme.idCategoria = cat.idCategoria) where filme.IdFilme = :id";
     $stmt = $PDO->prepare($sql);
     $stmt->bindParam( ':id',$_GET["id"]);
     $result = $stmt->execute();
@@ -14,6 +22,15 @@ if(!isset($_GET["id"])) { echo "<script>location.href='index.php';</script>"; } 
     }
     
     
+}
+switch ($_GET['dia']) {
+    case 1: $dia = "Segunda";break;
+    case 2: $dia = "Terça";break;
+    case 3: $dia = "Quarta";break;
+    case 4: $dia = "Quinta";break;
+    case 5: $dia = "Sexta";break;
+    case 6: $dia = "Sabado";break;
+    case 7: $dia = "Domingo";break;
 }
 ?>
 
@@ -33,7 +50,7 @@ if(!isset($_GET["id"])) { echo "<script>location.href='index.php';</script>"; } 
                 <span><?=$rows[0]["fnome"]?></span>
                 <p>
                     Serracine<br>
-                    Segunda 06/05 16:00 <br>
+                    <?=$dia?> 16:00 <br>
                     Dublado 3D
                 </p>
             </div>
@@ -53,7 +70,7 @@ if(!isset($_GET["id"])) { echo "<script>location.href='index.php';</script>"; } 
         </div>
 
         <div class="row div-button">
-            <a class="btn button" href="resultado-pesquisa.php">Voltar</a>
+            <a class="btn button" href="javascript:history.back()">Voltar</a>
         </div>
 
     </div>
@@ -118,7 +135,7 @@ if(!isset($_GET["id"])) { echo "<script>location.href='index.php';</script>"; } 
                     <div class="titulo-ingressos">
                         <div class="row">
                             <div class="col-sm-6">Entrada Inteira</div>
-                            <div class="col-sm-6">Disponiveis: <span class="total-inteira">5</span></div>
+                            <div class="col-sm-6">Disponiveis: <span class="total-inteira"><?=$rows[0]['inteira']?></span></div>
                         </div>
                     </div>
                     <div class="seleciona-ingresso">
@@ -136,7 +153,7 @@ if(!isset($_GET["id"])) { echo "<script>location.href='index.php';</script>"; } 
                     <div class="titulo-ingressos">
                         <div class="row">
                             <div class="col-sm-6">Meia Entrada</div>
-                            <div class="col-sm-6">Disponiveis: <span class="total-meia">3</span></div>
+                            <div class="col-sm-6">Disponiveis: <span class="total-meia"><?=$rows[0]['meia']?></span></div>
                         </div>
                     </div>
                     <div class="seleciona-ingresso">
