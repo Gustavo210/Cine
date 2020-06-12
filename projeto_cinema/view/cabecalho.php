@@ -13,10 +13,9 @@ session_start();
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="../model/css/main.css">
-    <script src="https://kit.fontawesome.com/16d67f6777.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.css">
+
     <link rel="sortcut icon" href="../model/img/logonavegador.png" type="image/png" />
-    <link rel="stylesheet" type="text/css" href="../model/css/loading-bar.css"/>
-<script type="text/javascript" src="../model/js/loading-bar.js"></script>
 </head>
 
 <body>
@@ -56,7 +55,7 @@ session_start();
         </div>
     <div class="col-1 col-sm-1 btn-group">
         <button botao type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <i class="far fa-user-circle"></i>
+            <?=isset($_SESSION["isLogged"])?"<i class='fas fa-user-cog'></i>":"<i class='far fa-user-circle'></i>"?>
         </button>
         <div class="dropdown-menu dropdown-menu-right" id="menuLogin">
             <?php if(isset($_SESSION["isLogged"])): ?>

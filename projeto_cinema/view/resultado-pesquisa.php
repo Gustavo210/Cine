@@ -7,7 +7,18 @@ if(!isset($_GET['search'])) {
 }
 $search = $_GET['search'];
 $search = '%' . $search . '%';
-$sql = "SELECT filme.idFilme,filme.faixa_etaria,filme.Nome as fnome,filme.Descricao as fdesc,filme.Cover,cat.Nome as fcnome FROM filme INNER JOIN filme_categoria cat ON (filme.idCategoria = cat.idCategoria) where filme.Nome LIKE :search ORDER BY idFilme DESC LIMIT 3 ";
+
+$sql = "SELECT 
+    filme.idFilme,
+    filme.faixa_etaria,
+    filme.Nome as fnome,
+    filme.Descricao as fdesc,
+    filme.Cover,
+    cat.Nome as fcnome
+    FROM filme 
+    INNER JOIN filme_categoria cat ON (filme.idCategoria = cat.idCategoria)
+    where filme.Nome LIKE :search ORDER BY idFilme DESC  ";
+
 $stmt = $PDO->prepare($sql);
 $stmt->bindParam( ':search', $search);
 $result = $stmt->execute();
@@ -18,9 +29,17 @@ $rows = $stmt->fetchAll();
 <a href="javascript:history.back()"><i class="fas fa-arrow-left"></i></a>
 <br>
 <br>
-    <p class="resultado-pesquisa">
-        Pesquisa <span class="span-destaque"><?=$_GET["search"]?></span><hr>
-    </p>
+<div class="row">
+    <div class="col-sm">
+        <p class="resultado-pesquisa">
+            Sua pesquisa <span class="span-destaque"><?=$_GET["search"]?></span><hr>
+        </p>
+    </div>
+    <div class="col-sm-3">
+        <label for="pesquisa">Pesquisar</label>
+        <input type="text" class="form-control pesquisa" placeholder="Gênero, Ator, Ano, Faixa etária">
+    </div>
+</div>
 <div class="space"></div>
     <?php
     
@@ -29,7 +48,8 @@ $rows = $stmt->fetchAll();
     <div class=" box-filme">
         <div class="row justify-content-between">
         <div class="col-sm-4 titulo-filme"><?=$row["fnome"]?></div>
-        <div class="col-sm-2"> <a class="btn btn-block btn-success" href="compra-ingresso.php?id=<?=$row["idFilme"]?>&dia=<?=date("N")?>">Comprar ingresso</a> <a class="btn btn-block btn-primary" href="descricao-filme.php?id=<?=$row["idFilme"]?>">Detalhes</a></div>
+        <div class="col-sm-2"> 
+            <a class="btn btn-block btn-primary" href="descricao-filme.php?id=<?=$row["idFilme"]?>">Detalhes</a></div>
         </div>
         <div class="row">
             <div class="col-sm-2 "><img src="<?=$row["Cover"]?>" width="200px" alt=""></div>
@@ -56,6 +76,16 @@ $rows = $stmt->fetchAll();
     </div>
     <?php endforeach;?>
 </div>
+<script>
+$(document).ready(function(){
+  $(".pesquisa").on("keyup", function() {
+    var value = $(this).val().toLowerCase();
+    $(".box-filme").filter(function() {
+      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+    });
+  });
+});
+</script>
 <?php
 require_once "footer.php";
 ?>

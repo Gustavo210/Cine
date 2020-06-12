@@ -35,6 +35,8 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
     </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.js"></script>
+    <script src="https://kit.fontawesome.com/16d67f6777.js" crossorigin="anonymous"></script>
     <script type="text/javascript" src="../model/js/search-filme.js"></script>
     <script type="text/javascript" src="../model/js/login.js"></script>
 	<script src="https://unpkg.com/blip-chat-widget" type="text/javascript"> </script> <script> (function () { window.onload = function () { new BlipChat() .withAppKey('Y2luZW1pbmhhOjhkNjdlMzliLTk0M2EtNGQyNC1iNjg0LTIyMjc4ZDExZDBlMQ==') .withButton({"color":"#2CC3D5","icon":""}) .withCustomCommonUrl('https://chat.blip.ai/') .build(); } })(); </script>

@@ -15,7 +15,10 @@ $("#loginForm").submit(function (e) {
                 'Sucesso!',
                 'Você logou com sucesso!',
                 'success'
-            );
+            )
+            .then((result) => {
+                location.reload()
+              })
             $(".welcomeMessage").html("Olá "+data.data.nome+", Bem vindo!");
             $("#afterLoginMenu").show();
             $("#loginForm").hide();
@@ -25,8 +28,11 @@ $("#loginForm").submit(function (e) {
                 'Erro!',
                 'Verifique as informações digitadas.',
                 'error'
-            )
-        }
+                ).then((result) => {
+                    location.reload()
+                  })
+            }
+            
     });
 });
 $("#signupForm").submit(function (e) {
@@ -47,7 +53,9 @@ $("#signupForm").submit(function (e) {
                 'Sucesso!',
                 'Você se cadastrou com sucesso!',
                 'success'
-            );
+            ).then((result) => {
+                location.reload()
+              })
             $(".welcomeMessage").html("Olá "+$(this).find("input[name='nome']").val()+", Bem vindo!");
             $("#afterLoginMenu").show();
             $("#loginForm").hide();
@@ -57,7 +65,9 @@ $("#signupForm").submit(function (e) {
                 'Erro!',
                 'Verifique as informações digitadas.',
                 'error'
-            );
+            ).then((result) => {
+                location.reload()
+              })
         }
     });
 });
@@ -93,10 +103,13 @@ $(".clickSair").on("click", function (e){
                 'Sucesso!',
                 'Você saiu com sucesso!',
                 'success'
-            );
+            ).then((result) => {
+                location.reload()
+              })
             $("#afterLoginMenu").hide();
             $("#loginForm").show();
             $("#signupForm").hide();
         }
+        
     });
 });

@@ -126,8 +126,9 @@ span.ofertas{
 [botao]{
     background-color: transparent;
 }
-.fa-user-circle{
-    font-size: 35px;
+.fa-user-circle,
+.fa-user-cog{
+    font-size: 2rem;
     color: white;
 }
 .nome-cartaz {

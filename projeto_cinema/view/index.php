@@ -46,10 +46,12 @@ $rowss = $stmt->fetchAll();
   foreach($rows as $row):
   ?>
     <div class="filme-cartaz col-sm-auto col-5">
+      <a href="descricao-filme.php?id=<?=$row["idFilme"]?>">
       <img src="<?=$row["Cover"]?>" width="150px">
-      <div class="nome-cartaz text-white">
+      <div style="font-size: 12px; text-align: center;" class="nome-cartaz text-white">
         <?=$row["Nome"]?>
       </div>
+      </a>
     </div>
   <?php endforeach; ?>
   </div>

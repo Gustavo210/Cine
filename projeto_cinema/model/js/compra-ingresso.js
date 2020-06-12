@@ -1,4 +1,76 @@
+$("#finalizarCompra").on('click',function (e) {
+    e.preventDefault();
+    var boleto = 0
+    if($('#pagamento-cartao').is(':checked')){
+        boleto = 1
+    }
+    if($('#pagamento-boleto').is(':checked')){
+        boleto = 0
+    }
+    var ingressoTotal =$('.valor-total-ingressos').text()
+    var combosTotal =$('.valor-total-combos').text()
+    var compraTotal =$('.total-compra').text()
+    var idCliente =$('#idCliente').val()
+    var nome = $('#nome').val()
+    var telefone = $('#telefone').val()
+    var cpf = $('#cpf').val()
+    var cartao = $('#cartao').val()
+    var seguranca = $('#seguranca').val()
+    var validade = $('#validade').val()
+    var horairo = $('#horario').val()
+    var dia = $('#dia').val()
+    var idFilme = $('#filme').val()
+    var assentos = $('.lugares').text()
+if((boleto==0&&nome&& telefone&&cpf)||
+(boleto==1&&nome&&telefone&&cpf&& cartao&& seguranca&& validade)){
 
+    $.ajax({
+        type:"GET",
+        dataType: "json",
+        url: "../control/api.php",
+        data: {
+            "method":"addCompra",
+            "ingressoTotal":ingressoTotal,
+            "combosTotal":combosTotal,
+            "compraTotal":compraTotal,
+            "idCliente":idCliente,
+            "boleto":boleto,
+            "dia":dia,
+            "horario":horairo,
+            "assentos":assentos,
+            "id_filme":idFilme
+        }
+    }).done((data) => {
+        if(data.status){
+            Swal.fire(
+                'Sucesso!',
+                'Obrigado pela compra, bom filme',
+                'success'
+                )
+                .then(() => {
+                    location.href="index.php"
+                })
+            } else {
+                Swal.fire(
+                    'Erro!',
+                    'Verifique as informações digitadas.',
+                    'error'
+                    ).then((result) => {
+                        location.reload()
+                    })
+                }
+                
+            });
+        }else{
+            Swal.fire(
+                'Erro!',
+                'Verifique as informações digitadas.',
+                'error'
+                )
+        }
+            
+
+});
     var cont=0;
     $('.cadeira').on('click',function(){
         var meusAcentos =$('.lugares').text();
@@ -17,6 +89,12 @@
                 $('.lugares').text(`${meusAcentos}, ${meuNovoAcento}`);
             }
             $(this).removeClass('cadeira').addClass('marcado');
+        }else{
+            Swal.fire(
+                '',
+                'Selecione pelo menos um ingresso para prosseguir',
+                'error'
+            )
         }
     });
 
@@ -103,9 +181,17 @@
         $('.div-acentos').show();
     });
     $('.combo-bt').on('click',function(){
-        $('.div-acentos').hide();
-        $('.div-pagamentos').hide();
-        $('.div-combos').show();
+        if($('.lugares').text()!=""){
+            $('.div-acentos').hide();
+            $('.div-pagamentos').hide();
+            $('.div-combos').show();
+        }else{
+            Swal.fire(
+                '',
+                'Selecione pelo menos uma cadeira para prosseguir',
+                'error'
+            )
+        }
     });
     $('.pagamento-bt').on('click',function(){
         $('.div-acentos').hide();

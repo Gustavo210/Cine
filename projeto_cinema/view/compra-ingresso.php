@@ -32,6 +32,12 @@ switch ($_GET['dia']) {
     case 6: $dia = "Sabado";break;
     case 7: $dia = "Domingo";break;
 }
+if(isset($_GET['horario'])){
+$horario = $_GET['horario'];
+}else{
+$horario = "00:00";
+}
+
 ?>
 
 <link rel="stylesheet" href="../model/css/compraIngresso.css">
@@ -50,7 +56,7 @@ switch ($_GET['dia']) {
                 <span><?=$rows[0]["fnome"]?></span>
                 <p>
                     Serracine<br>
-                    <?=$dia?> 16:00 <br>
+                    <?=$dia?> <?=$horario?> <br>
                     Dublado 3D
                 </p>
             </div>
@@ -246,38 +252,43 @@ switch ($_GET['dia']) {
             </div>
         </div>
         <div class="div-pagamentos">
+            <input id="idCliente" type="hidden" value="<?=$_SESSION['userId']?>">
             <div class="metodos-pagamento">Opções de pagamento <div class="pt-5"><img src="../model/img/pagamento.svg" alt=""></div></div>
             <div class="corpo-pagamento row">
                 <div class="col-sm-6">
                     <div class="cartao-info">Dados Pessoais
-                    <input type="checkbox" name="boleto">
+                    <input type="checkbox" id="pagamento-cartao">
                     </div>
                     <div>
-                        <input class="input-texto" placeholder="Titular"  type="text" name="" id="">
+                        <input class="input-texto" placeholder="Titular" value="<?=isset($_SESSION['userName'])?$_SESSION["userName"]:""?>"  type="text" id="nome">
                     </div>
                     <div>
-                        <input class="input-texto" placeholder="telefone" type="text" name="" id="">
+                        <input class="input-texto" placeholder="telefone" value="<?=isset($_SESSION['telefone'])?$_SESSION["telefone"]:""?>" type="text" id="telefone">
                     </div>
                     <div>
-                        <input class="input-texto" placeholder="CPF"  type="text" name="" id="">
+                        <input class="input-texto" placeholder="CPF" value="<?=isset($_SESSION['cpf'])?$_SESSION["cpf"]:""?>"  type="text" id="cpf">
                     </div>
                     <div class="cartao-info">Cartao</div>
                     <div>
-                        <input class="input-texto" placeholder="Nº Cartão"  type="text" name="" id="">
+                        <input class="input-texto" placeholder="Nº Cartão"  value="<?=isset($_SESSION['cartao'])?$_SESSION["cartao"]:""?>" type="text" id="cartao">
                     </div>
                     <div class="row">
                         <div class="col-sm-6">
-                            <input class="input-texto" placeholder="Cod segurança"  type="text" name="" id="">
+                            <input class="input-texto" placeholder="Cod segurança" id="seguranca"   type="text">
+                            <input id="boleto"   type="hidden">
                         </div>
                         <div class="col-sm-6">
-                            <input class="input-texto" placeholder="Validade"  type="text" name="" id="">
+                            <input class="input-texto" placeholder="Validade" value="<?=isset($_SESSION['validade'])?$_SESSION["validade"]:""?>" id="validade"  type="text">
                         </div>
                     </div>
                 </div>
                 
                 <div class="col-sm-6">
                     <span class="boleto">Boleto 
-                        <input type="checkbox" name="boleto">
+                    <input type="checkbox" id="pagamento-boleto">
+                    <input type="hidden" id="horario"value="<?=$horario?>">
+                    <input type="hidden" id="dia"value="<?=$dia?>">
+                    <input type="hidden" id="filme"value="<?=$_GET["id"]?>">
                     </span>
                         <img class="boleto-exemple" src="../model/img/zoom.jpg" alt="">
                 </div>
