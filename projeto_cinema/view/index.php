@@ -9,19 +9,19 @@ $rowss = $stmt->fetchAll();
 <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
   <div class="carousel-inner">
     <div class="carousel-item active">
-      <img class="d-block" src="../model/img/banners/TheWitcher.jpg" width="100%" alt="First slide">
+      <img class="d-block" src="../model/img/banners/TOYSTORY4.jpg" width="100%" alt="legal">
     </div>
     <div class="carousel-item">
-      <img class="d-block" src="../model/img/banners/Vikings.jpg" width="100%" alt="Second slide">
+      <img class="d-block" src="../model/img/banners/JOHNWICK.jpg" width="100%" alt="Oh JOHN ai oh">
     </div>
     <div class="carousel-item">
-      <img class="d-block" src="../model/img/banners/Sonic.jpg" width="100%" alt="Third slide">
+      <img class="d-block" src="../model/img/banners/Sonic.jpg" width="100%" alt="oi eu sou o sonic">
     </div>
     <div class="carousel-item">
-      <img class="d-block" src="../model/img/banners/Joker.jpg" width="100%" alt="Third slide">
+      <img class="d-block" src="../model/img/banners/Joker.jpg" width="100%" alt="medo">
     </div>
     <div class="carousel-item">
-      <img class="d-block" src="../model/img/banners/himym.jpg" width="100%" alt="Third slide">
+      <img class="d-block" src="../model/img/banners/PorLugaresIncriveis.jpg" width="100%" alt="filme bao">
     </div>
   </div>
   <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">

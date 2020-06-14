@@ -34,8 +34,11 @@ session_start();
                 <div class="col-auto col-sm-auto ">
                     <a class="nav_button" href="index.php"><i class="fas fa-home"></i> Home</a>
                 </div>
-                <div class="col-auto col-sm-auto mr-3 ">
+                <div class="col-auto col-sm-auto ">
                     <a class="nav_button" href="sobre-nos.php"><i class="fas fa-users"></i> Sobre Nós</a>
+                </div>
+                <div class="col-auto col-sm-auto mr-3 ">
+                    <a class="nav_button" href="resultado-pesquisa.php?search="><i class="fas fa-film"></i> Todos os Filmes</a>
                 </div>
 
             </div>
@@ -55,13 +58,13 @@ session_start();
         </div>
     <div class="col-1 col-sm-1 btn-group">
         <button botao type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <?=isset($_SESSION["isLogged"])?"<i class='fas fa-user-cog'></i>":"<i class='far fa-user-circle'></i>"?>
+            <?=isset($_SESSION["isLogged"])?"<i class='fas fa-user'></i>":"<i class='far fa-user-circle'></i>"?>
         </button>
         <div class="dropdown-menu dropdown-menu-right" id="menuLogin">
             <?php if(isset($_SESSION["isLogged"])): ?>
             <div id="afterLoginMenu">
                 <a class="dropdown-item" href="#"><h6 class="welcomeMessage">Olá <?=$_SESSION["userName"]?>, Bem vindo!</h6></a>
-                <a class="dropdown-item" href="#">Ingressos</a>
+                <a class="dropdown-item" href="meusIngressos.php">Ingressos</a>
                 <div class="dropdown-divider"></div>
                 <a class="dropdown-item clickSair" href="#">Sair</a>
             </div>
@@ -135,7 +138,7 @@ session_start();
             <div id="afterLoginMenu" style="display: none;width: auto;">
                 <h6 class="welcomeMessage text-center">Olá , Bem vindo!</h6>
                 <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#">Ingressos</a>
+                <a class="dropdown-item" href="meusIngressos.php">Ingressos</a>
                 <div class="dropdown-divider"></div>
                 <a class="dropdown-item clickSair" href="#">Sair</a>
             </div>

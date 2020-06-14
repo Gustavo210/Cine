@@ -1,7 +1,6 @@
 <?php
 require_once "cabecalho.php";
 require_once("../control/config.php");
-require_once("../control/config.php");
 if(!isset($_GET["id"])) { echo "<script>location.href='index.php';</script>"; } else {
     $sql = "SELECT filme.link_trailer,
     filme.Nome fnome,
@@ -48,7 +47,7 @@ $horario = "00:00";
 
     <!-- conteudo -->
         <div class="row">
-            <div class="col-sm-auto">
+            <div class="col-sm-6">
                 <img src="<?=$rows[0]["Cover"]?>" class="poster" alt="">
             </div>
 
@@ -75,8 +74,13 @@ $horario = "00:00";
             <div class="total">Total: R$ <div class="total-compra">0</div>,00</div>
         </div>
 
-        <div class="row div-button">
-            <a class="btn button" href="javascript:history.back()">Voltar</a>
+        <div class="row div-button ">
+            <div class="col-sm-6 ">
+                <a class="btn button" href="javascript:history.back()">Voltar</a>
+            </div>
+            <div class="col-sm-6 div-pagamentos">
+            <button class="btn button-finalizar" id="finalizarCompra">Finalizar</button>
+            </div>
         </div>
 
     </div>
@@ -94,7 +98,7 @@ $horario = "00:00";
         <div class="row div-acentos p-0 m-0">
             <div class="col-sm-auto p-3">
             <h2 class="alugue-texto">Alugue nossos acentos</h2>
-                <?php $value=1;for ($i=0; $i < 13; $i++) { ?>
+                <?php $value=1;for ($i=0; $i < 10; $i++) { ?>
         
                     <div class="row pl-4 pr-4 ">
 
@@ -102,7 +106,7 @@ $horario = "00:00";
                     
                             <div class="row">
                                 <?php $cont = 1;
-                                for ($w=1; $w < 12; $w++) { 
+                                for ($w=1; $w < 10; $w++) { 
                                     if($cont<12){?>
                                     
                                     <div class="cadeira"><?=$value?></div>
@@ -118,7 +122,7 @@ $horario = "00:00";
                         
                                 <div class="row">
 
-                                <?php for ($q=1; $q < 12; $q++) { 
+                                <?php for ($q=1; $q < 10; $q++) { 
                                     if($cont<=22){?>
 
                                     <div class=" cadeira"><?=$value?></div>
@@ -140,13 +144,13 @@ $horario = "00:00";
                 <div class="tipos-ingresso">
                     <div class="titulo-ingressos">
                         <div class="row">
-                            <div class="col-sm-6">Entrada Inteira</div>
-                            <div class="col-sm-6">Disponiveis: <span class="total-inteira"><?=$rows[0]['inteira']?></span></div>
+                            <div class="col-sm-6 title-ingress">Entrada Inteira</div>
+                            <div class="col-sm-6 title-ingress">Disponiveis: <span class="total-inteira"><?=$rows[0]['inteira']?></span></div>
                         </div>
                     </div>
                     <div class="seleciona-ingresso">
                         <div class="row p-0 m-0">
-                            <div class="col-sm-6">valor: R$15,00
+                            <div class="col-sm-6 title-ingress">valor: R$15,00
                             <input type="hidden" class="valor-inteira" value="15"></div>
                             <div class="col-sm-2 botoes-ingresso menos-inteira">-</div>
                             <div class="col-sm-2 text-center quant-inteira">0</div>
@@ -158,13 +162,13 @@ $horario = "00:00";
                     
                     <div class="titulo-ingressos">
                         <div class="row">
-                            <div class="col-sm-6">Meia Entrada</div>
-                            <div class="col-sm-6">Disponiveis: <span class="total-meia"><?=$rows[0]['meia']?></span></div>
+                            <div class="col-sm-6 title-ingress">Meia Entrada</div>
+                            <div class="col-sm-6 title-ingress">Disponiveis: <span class="total-meia"><?=$rows[0]['meia']?></span></div>
                         </div>
                     </div>
                     <div class="seleciona-ingresso">
                         <div class="row p-0 m-0">
-                            <div class="col-sm-6">valor: R$10,00
+                            <div class="col-sm-6 title-ingress">valor: R$10,00
                                 <input type="hidden" class="valor-meia" value="10"></div>
                                 <div class="col-sm-2 botoes-ingresso menos-meia">-</div>
                                 <div class="col-sm-2 text-center quant-meia">0</div>
@@ -175,7 +179,6 @@ $horario = "00:00";
                     </div>
                     <div class="total-ingresso">Total: <span class="meu-total-ingresso">0</span></div>
                 </div>
-                <br><br>
                 <div class="titulo">Meus acentos</div>
                 <div class="lugares"></div>
                 <div class="row ">
@@ -253,7 +256,7 @@ $horario = "00:00";
         </div>
         <div class="div-pagamentos">
             <input id="idCliente" type="hidden" value="<?=$_SESSION['userId']?>">
-            <div class="metodos-pagamento">Opções de pagamento <div class="pt-5"><img src="../model/img/pagamento.svg" alt=""></div></div>
+            <div class="metodos-pagamento">Opções de pagamento <div class="pt-3"></div></div>
             <div class="corpo-pagamento row">
                 <div class="col-sm-6">
                     <div class="cartao-info">Dados Pessoais
@@ -292,7 +295,6 @@ $horario = "00:00";
                     </span>
                         <img class="boleto-exemple" src="../model/img/zoom.jpg" alt="">
                 </div>
-                <button class="btn p-3 button" id="finalizarCompra">Finalizar</button>
             </div>
         </div>
 

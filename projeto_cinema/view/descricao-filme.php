@@ -26,16 +26,20 @@ if(!isset($_GET["id"])) { echo "<script>location.href='index.php';</script>"; } 
 $dias_disponiveis = explode('/',$rows['dias_disponiveis'])
 ?>
 <link rel="stylesheet" href="../model/css/descricao-filme.css">
-<div class="container-fluid p-5">
+<div class="tela container-fluid p-5">
     <a href="javascript:history.back()">
         <i class="fas fa-arrow-left"></i>
     </a>
     <div class="row mt-5">
-        <div class="col-sm-6">
-            <div class="row">
-                <div class="col-sm-3">
+
+
+        <div class="col-sm-auto">
+            <div class="row p-0 m-0">
+
+                <div class="col-sm-3 mr-3">
                     <img src="<?=$rows["Cover"]?>" width="200px" alt="">
                 </div>
+                
                 <div class="col-sm-8">
                     <h2><?=$rows["fnome"]?></h2>
                     <span class=" genero-filme"><span>Gênero: <?=$rows["fcnome"]?></span> </span>
@@ -48,19 +52,30 @@ $dias_disponiveis = explode('/',$rows['dias_disponiveis'])
                     } else {
                         echo "Livre";
                     }?></span>
-                    <p>
+                    <p style="max-width: 500px;">
                         <?=$rows["fdesc"]?>
                     </p>
                 </div>
+
+
             </div>
         </div>
-        <div class="col-sm-6">
-            <iframe width="800px" height="400px" src="<?=$rows["link_trailer"]?>"
-                allowfullscreen></iframe>
+
+
+        <div class="col-sm-auto">
+            <div class="row d-flex justify-content-center">
+<div class="col-sm-6 mt-3">
+
+    <iframe width="800px" height="400px" src="<?=$rows["link_trailer"]?>"
+        allowfullscreen></iframe>
+    </div>
+                </div>
         </div>
+        
+
     </div>
 
-    <div class="row d-flex justify-content-center mt-5">
+    <div class="row d-flex justify-content-center mb-3 mt-5">
         <div class="col-sm-6">
         <h1 class="mt-3 mb-3"> <i class="fas fa-ticket-alt"></i> Sessões Disponíveis</h1>
         <hr>
@@ -77,7 +92,7 @@ $dias_disponiveis = explode('/',$rows['dias_disponiveis'])
                         case '7':$nomeDia = "Domingo";break;
                     }
                 ?>
-                <div class="col">
+                <div class="col-auto p-0 m-1">
                     <a dia="<?=$nomeDia?>" id_filme="<?=$rows["idFilme"]?>" class="btn <?=$dias[1]==0?"disabled ":""?>btn-block <?=isset($_SESSION['isLogged'])?"horarios ":"bloqueioLogin "?>btn-dark" 
                     href="compra-ingresso.php?id=<?=$rows["idFilme"]?>&dia=<?=$dias[0]?>"><?=$nomeDia?></a>
                 </div>

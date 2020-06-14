@@ -21,8 +21,8 @@ $("#finalizarCompra").on('click',function (e) {
     var dia = $('#dia').val()
     var idFilme = $('#filme').val()
     var assentos = $('.lugares').text()
-if((boleto==0&&nome&& telefone&&cpf)||
-(boleto==1&&nome&&telefone&&cpf&& cartao&& seguranca&& validade)){
+if((boleto==0&&nome.length>5&& telefone.length>8&&cpf.length>10)||
+(boleto==1&&nome.length>5&&telefone.length>8&&cpf.length>10&& cartao.length>16&& seguranca.length>2&& validade.length>2)){
 
     $.ajax({
         type:"GET",
