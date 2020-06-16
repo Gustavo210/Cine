@@ -10,7 +10,8 @@ $sql = "SELECT
         c.ingressoTotal,
         c.combostotal,
         c.compraTotal,
-        c.boleto 
+        c.boleto,
+        f.link_trailer
         
         FROM compras c 
         INNER join filme f on(f.idFilme = c.id_filme) 
@@ -35,11 +36,12 @@ $compras = $stmt->fetchAll();
             <div class="col-sm-1">ID</div>
             <div class="col-sm">Filme</div>
             <div class="col-sm">Assentos</div>
-            <div class="col-sm-1">Compra</div>
-            <div class="col-sm-1">Ingressos</div>
-            <div class="col-sm-1">Combos</div>
-            <div class="col-sm-1">Total</div>
-            <div class="col-sm-1">Pagamento</div>
+            <div class="col-sm-1 text-center">Compra</div>
+            <div class="col-sm-1 text-center">Ingressos</div>
+            <div class="col-sm-1 text-center">Combos</div>
+            <div class="col-sm-1 text-center">Total</div>
+            <div class="col-sm-1 text-center">Pagamento</div>
+            <div class="col-sm-1 p-0 m-0 text-center">Ticket</div>
             </div>
         <div class="compra-body mt-3">
             <?php foreach ($compras as $item) {?>
@@ -49,11 +51,16 @@ $compras = $stmt->fetchAll();
                         <div class="col-sm-1"><span>#<?=$item['id']?></span></div>
                         <div class="col-sm"><span><?=$item['nome']?> | <?=$item['horario']?></span></div>
                         <div class="col-sm"><span><?=$item['assentos']?></span></div>
-                        <div class="col-sm-auto"><span><?=$item['data_compra']?></span></div>
-                        <div class="col-sm-1"><span>R$<?=$item['ingressoTotal']?>,00 </span></div>
-                        <div class="col-sm-1"><span>R$ <?=$item['combostotal']?>,00</span></div>
-                        <div class="col-sm-1"><span>R$ <?=$item['compraTotal']?>,00</span></div>
-                        <div class="col-sm-1"><?=$item['boleto']?"<i class='fas fa-money-bill-wave'></i>":"<i class='far fa-credit-card'></i>"?></div>
+                        <div class="col-sm-auto"><span><?=date('d/m/Y H:i:s',strtotime($item['data_compra']))?></span></div>
+                        <div class="col-sm-1 text-center"><span>R$<?=$item['ingressoTotal']?>,00 </span></div>
+                        <div class="col-sm-1 text-center"><span>R$ <?=$item['combostotal']?>,00</span></div>
+                        <div class="col-sm-1 text-center"><span>R$ <?=$item['compraTotal']?>,00</span></div>
+                        <div class="col-sm-1 text-center"><?=$item['boleto']?"<i class='fas fa-money-bill-wave'></i>":"<i class='far fa-credit-card'></i>"?></div>
+                        <div class="col-sm-1 m-0 p-0 text-center">
+                            <button class="btn btn-light ticket">Baixar</button>
+                            <input type="hidden"class="nome" value="<?=$item['nome']?>">
+                            <input type="hidden"class="video" value="<?=$item['link_trailer']?>">
+                    </div>
                     </div>
                 </div>
             <?php }?>
@@ -70,6 +77,29 @@ $(document).ready(function(){
     });
   });
 });
+
+$('.ticket').on('click',function(){
+    var nome = $(this).parent().find('.nome').val()
+    var video = $(this).parent().find('.video').val()
+    $.confirm({
+                title: `${nome}`,
+                content: `<div class="container-fluid">
+                    <div class='row d-flex justify-content-center'>
+                        <div class="col-6">
+                            <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${video}">
+                        </div>
+                    </div>
+                </div>
+                `,
+                buttons: {
+                    Fechar: function () {
+                        //close
+                    },
+                }
+            });
+
+})
+
 </script>
 <?php
 require_once "footer.php";
