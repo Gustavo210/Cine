@@ -1,0 +1,48 @@
+.resultado-pesquisa{
+    font-style: italic;
+    font-size: 15px;
+}
+.span-destaque{
+    font-weight: bolder;
+    font-size: 20px;
+}
+.box-filme{
+    margin-top: 20px;
+    border: 2px rgb(163, 163, 163);
+    border-radius: 10px;
+    padding: 10px;
+    box-shadow: 1px 4px 15px rgb(146, 146, 146);
+}
+.titulo-filme{
+    font-size: 20px;
+    font-weight: bolder;
+}
+.genero-filme{
+    border: solid rgb(85, 85, 85);
+    background-color: rgb(206, 206, 206);
+    font-size: 15px;
+    color: rgb(0, 0, 0);
+    border-radius: 10px;
+    padding: 2px;
+    margin: 0;
+}
+.faixa-etaria-filme{
+    margin-left: 10px;
+    border-radius: 1px;
+    background-color: orange;
+    color: white;
+    text-align: center;
+    font-size: 20px;
+    padding: 4px;
+    padding-top: 3px;
+}
+.em-exibicao{
+    font-size: 13px;
+}
+.desc-filme{
+    padding-top: 10px;
+    font-size: 13px;
+}
+.space{
+    margin-top: 40px;
+}
